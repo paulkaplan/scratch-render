@@ -754,6 +754,8 @@ class RenderWebGL extends EventEmitter {
      * @property {int} height Drawable bounding box height
      * @property {Array<number>} scratchOffset [x, y] offset in Scratch coordinates
      * from the drawable position to the client x, y coordinate
+     * @property {Array<number>} rotationCenter [x, y] rotationCenter of the drawable,
+     * needed to position the extracted drawable correctly
      * @property {int} x The x coordinate relative to drawable bounding box
      * @property {int} y The y coordinate relative to drawable bounding box
      */
@@ -824,6 +826,10 @@ class RenderWebGL extends EventEmitter {
             scratchOffset: [
                 -scratchX + drawable._position[0],
                 -scratchY - drawable._position[1]
+            ],
+            rotationCenter: [
+                drawable.skin.rotationCenter[0],
+                drawable.skin.rotationCenter[1]
             ],
             x: pickX,
             y: pickY
